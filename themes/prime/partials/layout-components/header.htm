@@ -1,0 +1,54 @@
+<header class="default-header">
+  <div class="container">
+    <nav class="site-nav">
+
+      <a href="/" class="site-nav__logo">
+        <div class="wrapper__site-nav__logo--image">
+          <img src="{{ 'assets/img/logo.png'|theme }}" width="126" height="60" alt=" медицинская компания">
+        </div>
+        <span class="site-nav__title">{{ ' медицинская компания'|_ }}</span>
+      </a>
+      <ul class="site-nav__list _site-nav__list">
+        {% for item in topMenuitems %}
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+
+      <div class="site-nav__phone">
+        <a href="tel:{{link_default_phone}}">{{default_phone}}</a>
+        <button class="_site-nav__phone">{{'Обратный звонок'|_}}</button>
+      </div>
+
+      <ul class="site-nav__user__list">
+        <li class="site-nav__user__item site-nav__user__item--search">
+          <form action="/search" method="get" class="site-nav_form _site-nav_form">
+            <div class="wrapper__site-nav_form">
+              <input name="search" type="text" placeholder="поиск">
+              <button>{{'Найти'|_}}</button>
+            </div>
+          </form>
+          <button class="site-nav__user__search-button _site-nav__user__search-button">{{'Открыть поиск'|_}}</button>
+        </li>
+
+        <li class="site-nav__user__item site-nav__user__item--languages">
+          {{ form_open() }}
+            <select name="" id="" class="_form__select--1">
+              {% for code, name in locales %}
+                {% if code == activeLocale %}
+                  <option value="{{code}}" disabled>{{name}}</option>
+                {% else %}
+                  <option value="{{code}}">{{name}}</option>
+                {% endif%}
+              {% endfor %}
+            </select>
+         {{ form_close() }}
+        </li>
+
+        <li class="site-nav__user__item site-nav__user__item--menu">
+          <button class="_site-nav__user__item--menu"><span>{{'Открыть меню'|_}}</span></button>
+        </li>
+      </ul>
+
+    </nav>
+  </div>
+</header>

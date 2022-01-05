@@ -1,0 +1,16 @@
+{% if arAchievementsAboutSettings is not empty %}
+  <div class="info-page__achievements">
+    <div class="container">
+      <h2 class="info-page__achievements__title">{{'Наши достижения'|_}}</h2>
+      <ul class="info-page__achievements__list">
+        {% for achievement in arAchievementsAboutSettings %}
+          <li>
+            <a href="{{ achievement.icon|media | resize(auto, auto, { mode: 'auto'}) }}" class="wrapper__info-page__achievements__image" data-fancybox="gallery">
+              <img src="{{ achievement.icon|media | resize(auto, auto, { mode: 'auto'}) }}" alt="" width="224" height="317">
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

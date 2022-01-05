@@ -1,0 +1,88 @@
+title = "Поиск"
+url = "/search"
+layout = "default"
+is_hidden = 0
+
+[ProductList]
+sorting = "no"
+
+[CategoryList]
+
+[Pagination]
+available_count_per_page = "12,24,48"
+count_per_page = 12
+pagination_limit = 3
+active_class = "pagination__item--active"
+button_list = "prev,first,first-more,main,last-more,last,next"
+first_button_name = "First"
+first_button_limit = 1
+first_button_number = 1
+first-more_button_name = "..."
+first-more_button_limit = 3
+prev_button_name = "<<"
+prev_button_limit = 1
+prev-more_button_name = "..."
+prev-more_button_limit = 1
+next-more_button_name = "..."
+next-more_button_limit = 1
+next_button_name = ">>"
+next_button_limit = 1
+last-more_button_name = "..."
+last-more_button_limit = 3
+last_button_name = "Последняя"
+last_button_limit = 2
+last_button_number = 1
+
+==
+<?php
+
+function onInit() {
+  require_once('phpcode/search.php');
+
+  $this['searchText'] = $searchText ?? null;
+  $this['arSearchList'] = $arSearchList ?? [];
+  $this['iCount'] = $iCount ?? 0;
+  $this['arBreadcrumbs'] = $arBreadcrumbs ?? [];
+
+  $this->page->title = $searchText;
+  $this->page->canonical = request()->getSchemeAndHttpHost() . "/search";
+
+}
+
+function onStart() {
+  $this->addJs([]);
+
+  $this->addCss(['assets/css/routingCatalog.min.css']);
+}
+?>
+==
+<main>
+
+  {% partial 'components/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
+
+  <section class="section-search">
+    <div class="container">
+      <div class="section-products__title-count">
+        <h1 class="catalog-main__title">Поиск</h1>
+        {% if arSearchList is not empty %}
+          <p class="catalog-main__description">{{'По вашему запросу'|_}} "{{ searchText }}" {{'найдено'|_}} {{ iCount }} {{'товара(ов)'|_}}</p>
+        {% else %}
+          <p class="catalog-main__description">{{'По вашему запросу'|_}} “{{ searchText }}” {{'ничего не найдено'|_}}. {{'Попробуйте изменить запрос'|_}}</p>
+        {% endif %}
+      </div>
+
+      {% if arSearchList is not empty %}
+      <ul class="components-products__list">
+        {% if arSearchList is not empty %}
+          {% for obProduct in arSearchList %}
+            <li>
+              {% partial 'components/catalog/product-card' item=obProduct %}
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+      {% endif %}
+    </div>
+  </section>
+
+</main>

@@ -1,0 +1,11 @@
+<div class="wrapper__components-sidebar">
+  <ul class="components-sidebar__list">
+    {% if obCategoryChildrenList is not empty %}
+      {% for obCategoryChild in obCategoryChildrenList %}
+        <li class="{% if obCategoryChild.id == obActiveCategory.id %} active {% endif %}">
+          <a href="{{ obCategoryChild.getPageUrl('routing-catalog') }}">{{ obCategoryChild.name }}</a>
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+</div>

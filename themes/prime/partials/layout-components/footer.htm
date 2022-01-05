@@ -1,0 +1,80 @@
+<footer class="default-footer">
+  <div class="container">
+    <div class="default-footer__top">
+
+      <ul class="default-footer__user-nav__list">
+        {% for item in bottomMenuitems %}
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+
+      <ul class="default-footer__site-nav__list">
+        <li class="default-footer__site-nav__item--languages">
+          {{ form_open() }}
+            <select name="" id="" class="_form__select--2">
+              {% for code, name in locales %}
+                {% if code == activeLocale %}
+                  <option value="{{code}}" disabled>{{name}}</option>
+                {% else %}
+                  <option value="{{code}}">{{name}}</option>
+                {% endif%}
+              {% endfor %}
+            </select>
+         {{ form_close() }}
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="default-footer__center">
+      <div class="wrapper__site-nav__logo--image">
+        <img src="{{ 'assets/img/logo.png'|theme }}" width="126" height="60" alt="{{'медицинская компания'|_}}">
+      </div>
+
+      <ul class="default-footer__callback__list">
+        <li class="default-footer__callback__item">
+          <span>{{'Адрес'|_}}</span>
+          <p>{{ default_address }}</p>
+        </li>
+        <li class="default-footer__callback__item">
+          <span>{{'Телефон'|_}}</span>
+          <a href="tel:{{ link_default_phone }}">{{ default_phone }}</a>
+        </li>
+        <li class="default-footer__callback__item">
+          <span>Email</span>
+          <a href="mailTo:{{ default_email }}">{{ default_email }}</a>
+        </li>
+      </ul>
+
+      <ul class="default-footer__social__list">
+        <li class="default-footer__social__item">
+          <a href="{{ default_fb }}">
+            <div class="wrapper__default-footer__social__image">
+              <img src="{{'assets/img/icons/fb.svg'|theme}}" alt="" width="20" height="12">
+            </div>
+          </a>
+        </li>
+        <li class="default-footer__social__item">
+          <a href="{{ default_vk }}">
+            <div class="wrapper__default-footer__social__image">
+              <img src="{{'assets/img/icons/vk.svg'|theme}}" alt="" width="20" height="12">
+            </div>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="default-footer__bottom">
+      <p>© {{ 'now' | date('Y') }} {{'Все права защищены'|_}}</p>
+
+      <div class="default-footer__bottom__block">
+        <a href="{{ default_police }}">{{'Политика конфиденциальности'|_}}</a>
+        <p>{{'Разработано в'|_}} <a href="https://test.ru/">Test</a>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</footer>

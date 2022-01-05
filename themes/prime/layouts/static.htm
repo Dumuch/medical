@@ -1,0 +1,99 @@
+description = "Шаблон по для статических страниц"
+
+[emptyForm]
+group = "Обратный звонок"
+custom_attributes[name] = "Имя"
+custom_attributes[phone] = "Телефон"
+custom_attributes[title] = "Заголовок страницы"
+messages_success = "Your form was successfully submitted"
+messages_errors = "There were errors with your submission"
+mail_enabled = 1
+reset_form = 1
+inline_errors = "disabled"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[SiteSettings]
+
+[staticMenu headerMenu]
+code = "headerMenu"
+
+[localePicker]
+forceUrl = 1
+==
+<?php
+function onInit()
+{
+  require_once('phpcode/static.php');
+
+  $this['default_phone'] = $default_phone ?? null;
+  $this['link_default_phone'] = $link_default_phone ?? null;
+  $this['default_address'] = $default_address ?? null;
+  $this['default_email'] = $default_email ?? null;
+  $this['default_police'] = $default_police ?? null;
+  $this['default_fb'] = $default_fb ?? null;
+  $this['default_vk'] = $default_vk ?? null;
+
+  $this->page->title =  $this->page->meta_title ?? $this->page->title;
+  $this->page->description =  $this->page->meta_description;
+  $this->page->keywords = $this->page->meta_keywords;
+
+  $this['arTopMenuItems'] = $arTopMenuItems;
+  $this['arBreadcrumbs'] = $arBreadcrumbs;
+
+}
+
+function onStart()
+{
+  $this->addCss(['~/modules/system/assets/css/framework.extras.css', 'assets/css/styles.min.css']);
+  $this->addJs(['assets/javascript/jquery-3.6.0.min.js', '~/modules/system/assets/js/framework.combined-min.js', 'assets/javascript/default.js']);
+}
+?>
+==
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+  {% partial 'layout-components/meta' %}
+  <style media="screen">
+    {% partial 'layout-components/inline-style' %}
+  </style>
+
+  {% partial 'layout-components/styles' %}
+</head>
+
+<body>
+  {% partial 'layout-components/header' topMenuitems=arTopMenuItems default_phone=default_phone link_default_phone=link_default_phone %}
+  <main>
+    <section class="section-category section-category--header">
+      <div class="container">
+        <h1 class="section-category__title">{{ page.title }}</h1>
+      </div>
+    </section>
+
+    {% partial 'components/breadcrumbs' title=page.title arBreadcrumbs=arBreadcrumbs %}
+
+    <div class="container">
+      {% page %}
+    </div>
+  </main>
+
+  {% partial 'layout-components/footer' bottomMenuitems=arTopMenuItems
+    default_phone=default_phone link_default_phone=link_default_phone
+    default_email=default_email default_address=default_address
+    default_police=default_police default_fb=default_fb default_vk=default_vk %}
+
+    {% partial 'layout-components/modal-callback' %}
+
+  {% partial 'layout-components/scripts' %}
+</body>
+
+</html>

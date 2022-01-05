@@ -1,0 +1,88 @@
+<div class="section-product__images section-product__images--no-js">
+  <ul class="section-product__images__list--big _section-product__images__list--big">
+
+    {% if obProduct.preview_image %}
+      {% if obProduct.preview_image.title is not empty %}
+        {% set imageALTpreview = obProduct.preview_image.title %}
+      {% elseif obProduct.preview_image.description is not empty %}
+        {% set imageALTpreview = obProduct.preview_image.description %}
+      {% else %}
+        {% set imageALTpreview = obProduct.name %}
+      {% endif %}
+
+      <li>
+        <a href="{{ obProduct.preview_image | resize(auto) }}" class="wrapper__section-product__images__image--big" data-fancybox="gallery">
+          <picture>
+            <source type="image/webp" srcset="{{ obProduct.preview_image | resize(auto, 600, { 'mode': 'fit', 'quality': '90', 'extension': 'webp' }) }}">
+            <img loading="lazy" src="{{ obProduct.preview_image | resize(auto, 600, { 'mode': 'fit' }) }}" alt="{{ imageALTpreview }}"  width="348" height="323">
+          </picture>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if obProduct.images %}
+      {% for image in obProduct.images %}
+        {% if image.preview_image.title is not empty %}
+          {% set imageALTpreview = image.preview_image.title %}
+        {% elseif image.preview_image.description is not empty %}
+          {% set imageALTpreview = image.preview_image.description %}
+        {% else %}
+          {% set imageALTpreview = image.name %}
+        {% endif %}
+
+        <li>
+          <a href="{{ image.path | resize(auto) }}" class="wrapper__section-product__images__image--big" data-fancybox="gallery">
+            <picture>
+              <source type="image/webp" srcset="{{ image.path | resize(auto, 600, { 'mode': 'fit', 'quality': '90', 'extension': 'webp' }) }}">
+              <img loading="lazy" src="{{ image.path | resize(auto, 600, { 'mode': 'fit' }) }}" alt="{{ imageALTpreview }}"  width="348" height="323">
+            </picture>
+          </a>
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+
+
+  <ul class="section-product__images__list _section-product__images__list">
+
+    {% if obProduct.preview_image %}
+      {% if obProduct.preview_image.title is not empty %}
+        {% set imageALTpreview = obProduct.preview_image.title %}
+      {% elseif obProduct.preview_image.description is not empty %}
+        {% set imageALTpreview = obProduct.preview_image.description %}
+      {% else %}
+        {% set imageALTpreview = obProduct.name %}
+      {% endif %}
+
+      <li class="active">
+        <div class="wrapper__section-product__images__image--small">
+          <picture>
+            <source type="image/webp" srcset="{{ obProduct.preview_image | resize(auto, 200, { 'mode': 'fit', 'quality': '90', 'extension': 'webp' }) }}">
+            <img loading="lazy" src="{{ obProduct.preview_image | resize(auto, 200, { 'mode': 'fit' }) }}" alt="{{ imageALTpreview }}"  width="80" height="74">
+          </picture>
+        </div>
+      </li>
+    {% endif %}
+
+    {% if obProduct.images %}
+      {% for image in obProduct.images %}
+        {% if image.preview_image.title is not empty %}
+          {% set imageALTpreview = image.preview_image.title %}
+        {% elseif image.preview_image.description is not empty %}
+          {% set imageALTpreview = image.preview_image.description %}
+        {% else %}
+          {% set imageALTpreview = image.name %}
+        {% endif %}
+
+        <li>
+          <div class="wrapper__section-product__images__image--small">
+            <picture>
+              <source type="image/webp" srcset="{{ image.path | resize(auto, 200, { 'mode': 'fit', 'quality': '90', 'extension': 'webp' }) }}">
+              <img loading="lazy" src="{{ image.path | resize(auto, 200, { 'mode': 'fit' }) }}" alt="{{ imageALTpreview }}"  width="80" height="74">
+            </picture>
+          </div>
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+</div>

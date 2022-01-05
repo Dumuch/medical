@@ -1,0 +1,29 @@
+{% if arHelpSettings is not empty %}
+  <div class="components__info-callback">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-xl-4 col-xxl-5 mb-3 mb-xl-0">
+          <p class="components__info-callback__title">{{'Круглосуточная служба технической поддержки'|_}}</p>
+        </div>
+        <div class="col-6 col-sm-4 col-xl-auto">
+          <div class="components__info-callback__block">
+            <span>{{'Телефон'|_}}</span>
+            <a href="tel:{{SiteSettings.getPhoneValue(arHelpSettings.phone)}}">{{ arHelpSettings.phone }}</a>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-xl-auto">
+          <div class="components__info-callback__block">
+            <span>{{'Viber и WhatsApp'|_}}</span>
+            <a href=whatsapp://send?phone="{{ arHelpSettings.viber }}">{{ arHelpSettings.viber }}</a>
+          </div>
+        </div>
+        <div class="col-12 col-sm-4 col-xl-auto mt-3 mt-sm-0">
+          <div class="components__info-callback__block">
+            <span>Email</span>
+            <a href="mailTo:{{ arHelpSettings.email }}">{{ arHelpSettings.email }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

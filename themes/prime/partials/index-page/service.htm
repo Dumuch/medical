@@ -1,0 +1,28 @@
+{% if arServiceSettings is not empty %}
+  <section class="section-service">
+    <div class="container">
+      <div class="row">
+        <div class="d-none d-md-block col-12 col-md-6">
+          <div class="wrapper__section-service__image">
+            <img loading="lazy" src="{{'assets/img/service_image.png'|theme}}" alt="" width="620" height="583">
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="section-service__info">
+            <h2 class="section-service__title">{{'Сервис'|_}}</h2>
+            {{ arServiceSettings.description|raw }}
+            <a href="{{ arServiceSettings.link }}" class="section-service__link">{{'Подробнее'|_}}</a>
+
+            <ul class="section-service__list">
+              {% if arServiceSettings.service_advantages is not empty %}
+                {% for advantage in arServiceSettings.service_advantages %}
+                  <li>{{ advantage.description }}</li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,16 @@
+{% if arAdvantagesAboutSettings is not empty %}
+  <div class="container">
+    <div class="info-page__advantages">
+      <ul class="info-page__advantages__list">
+        {% for advantage in arAdvantagesAboutSettings %}
+          <li class="info-page__advantages__item">
+            <div class="wrapper__info-page__advantages__item__image">
+              <img src="{{ advantage.icon|media | resize(auto, auto, { mode: 'auto'}) }}" alt="" width="42" height="42">
+            </div>
+            <span class="info-page__advantages__item__text">{{ advantage.description }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

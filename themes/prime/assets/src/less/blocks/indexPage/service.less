@@ -1,0 +1,117 @@
+.section-service {
+  .indexPage-section-p;
+  background-color: #f2f9ff;
+}
+
+.wrapper__section-service__image {
+  width: 100%;
+  overflow: hidden;
+
+  & img {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.section-service__info {
+  display: flex;
+  flex-direction: column;
+
+  & p {
+    .mp-0;
+  }
+
+  & p + p {
+    margin-top: 40px;
+  }
+}
+
+.section-service__title {
+  .section-title(url("../img/icons/pulse--3.svg"), 118px, 24px);
+}
+
+.section-service__link {
+  display: inline-flex;
+  align-items: center;
+  color: #00d3a1;
+  .f-Sb;
+  .curs-trans;
+
+  &::after {
+    position: relative;
+    top: 2px;
+    width: 27px;
+    height: 15px;
+    margin-left: 20px;
+    content: '';
+    background-image: url("../img/icons/arrow_right_button.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.section-service__list {
+  list-style: none;
+  .mp-0;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 25px;
+  row-gap: 10px;
+
+  & li {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    flex-grow: 1;
+    .f-B;
+    color: #2089e5;
+    background: linear-gradient(125deg, rgba(90,95,225,1) 0%, rgba(32,137,229,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &::before {
+      flex-shrink: 0;
+      position: relative;
+      top: 2px;
+      margin-right: 11px;
+      content: '';
+      width: 17px;
+      height: 12px;
+      background-image: url("../img/icons/check.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .section-service {
+    .indexPage-section-p-SM;
+  }
+
+  .section-service__title {
+    .section-title-SM;
+  }
+
+  .section-service__info {
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .section-service {
+    .indexPage-section-p-SM;
+  }
+
+  .section-service__title {
+    .section-title-SM;
+  }
+
+  .section-service__info {
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 1200px) and (max-width: 1399px) {}
+@media (min-width: 1400px) {}

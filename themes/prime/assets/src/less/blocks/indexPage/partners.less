@@ -1,0 +1,66 @@
+.section-partners {
+  .indexPage-section-p;
+  background-color: #f2f9ff;
+}
+
+.section-partners__title {
+  .section-title(url("../img/icons/pulse--2.svg"), 131px, 36px)
+}
+
+.section-partners__item {
+  display: block;
+  padding: 40px;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: #ffffff;
+  .curs-trans(0.2s,1);
+
+  &:hover {
+    box-shadow: 4px 4px 10px 0 rgba(0, 211, 161, 0.2);
+    transform: translate(-5px, -5px);
+  }
+
+  & p {
+    .mp-0;
+    margin-top: 35px;
+  }
+}
+
+.wrapper__section-partners__image {
+  & img {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .section-partners {
+    .indexPage-section-p-SM;
+  }
+
+  .section-partners__title {
+    .section-title-SM()
+  }
+
+  .section-partners__item {
+    padding: 20px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .section-partners {
+    .indexPage-section-p-SM;
+  }
+
+  .section-partners__title {
+    .section-title-SM()
+  }
+
+  .section-partners__item {
+    padding: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 1200px) and (max-width: 1399px) {}
+@media (min-width: 1400px) {}

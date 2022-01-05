@@ -1,0 +1,21 @@
+{% if obBrandList is not empty %}
+  <section class="section-partners">
+    <div class="container">
+      <h2 class="section-partners__title">{{'Партнеры'|_}}</h2>
+
+      <div class="row">
+        {% for brand in obBrandList %}
+          <div class="col-12 col-md-6 col-xl-4 pb-4">
+            <a href="/brands/{{ brand.slug }}" class="section-partners__item">
+              <div class="wrapper__section-partners__image">
+                <img loading="lazy" src="{{ brand.preview_image | resize(auto)}}" alt="" width="320" height="auto">
+              </div>
+              <p>{{ brand.description }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </section>
+{% endif %}

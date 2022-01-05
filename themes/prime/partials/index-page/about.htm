@@ -1,0 +1,60 @@
+{% if arAboutSettings is not empty %}
+  <section class="section-about">
+    <div class="container">
+      <h2 class="section-about__title">{{'О компании'|_}}</h2>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p>{{ arAboutSettings.description_left|raw }}</p>
+        </div>
+        <div class="col-12 col-md-6 mt-4 mt-md-0">
+          <p>{{ arAboutSettings.description_right|raw }}</p>
+          <a href="{{ arAboutSettings.link }}" class="section-about__link">{{'Подробнее о компании'|_}}</a>
+        </div>
+      </div>
+
+      <ul class="section-about__list">
+
+        {% if arAboutSettings.advantages is not empty %}
+          {% for advantage in arAboutSettings.advantages %}
+            <li class="section-about__item">
+              <div class="wrapper__section-about__item__image">
+                <img loading="lazy" src="{{ advantage.icon|media | resize(auto, auto, { mode: 'auto'}) }}" alt="" width="42" height="42">
+              </div>
+              <span class="section-about__item__text">{{ advantage.description }}</span>
+            </li>
+          {% endfor %}
+        {% endif %}
+
+      </ul>
+    </div>
+
+    <div class="section-about__map">
+      <div class="container">
+
+        <ul class="section-about__map__list">
+          <li><span>{{'Новосибирск'|_}}</span></li>
+          <li><span>{{'Томск'|_}}</span></li>
+          <li><span>{{'Кемерово'|_}}</span></li>
+          <li><span>{{'Красноярск'|_}}</span></li>
+          <li><span>{{'Абакан'|_}}</span></li>
+          <li><span>{{'Иркутск'|_}}</span></li>
+          <li><span>{{'Улан-Удэ'|_}}</span></li>
+          <li><span>{{'Чита'|_}}</span></li>
+          <li><span>{{'Благовещенск'|_}}</span></li>
+          <li><span>{{'Биробиджан'|_}}</span></li>
+          <li><span>{{'Хабаровск'|_}}</span></li>
+          <li><span>{{'Владивосток'|_}}</span></li>
+          <li><span>{{'Южно-Сахалинск'|_}}</span></li>
+          <li><span>{{'Якутск'|_}}</span></li>
+          <li><span>{{'Чукотка'|_}}</span></li>
+        </ul>
+
+        <div class="wrapper__section-about__map__image">
+          <img loading="lazy" src="{{ 'assets/img/map.png'|theme}}" alt="" width="1350" height="654">
+        </div>
+      </div>
+
+    </div>
+  </section>
+{% endif %}

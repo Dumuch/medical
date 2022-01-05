@@ -1,0 +1,116 @@
+.section-categories {
+  .indexPage-section-p;
+}
+
+.section-categories__title {
+  .section-title(url("../img/icons/pulse--3.svg"), 159px, 23px, 8px)
+}
+
+.section-categories__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 50px);
+  margin-left: 35px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 45px;
+  box-sizing: border-box;
+  background-color: #f2f9ff;
+  .curs-trans(0.2s, 1);
+
+  &:hover {
+    box-shadow: 4px 4px 10px 0 rgba(0, 211, 161, 0.2);
+    transform: translate(-5px, -5px);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 7px);
+    right: -15px;
+    width: 27px;
+    height: 14px;
+    background-image: url("../img/icons/arrow_right_button.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.wrapper__section-categories__image {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: -35px;
+  margin-right: 20px;
+  padding: 5px;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(115deg, rgb(0,211,161) 0%, rgb(16,174,195) 34%, rgb(32,137,229) 50%, rgb(90,95,225) 100%);
+  overflow: hidden;
+  box-sizing: border-box;
+
+  & img {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.wrapper__section-categories__info {
+  & h3 {
+    .mp-0;
+    background: linear-gradient(125deg, #5a5fe1 0%, #2089e5 100%);
+    .f-B;
+    font-size: 18px;
+    line-height: 24px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 575px) {
+  .section-categories {
+    .indexPage-section-p-SM;
+  }
+
+  .section-categories__title {
+    .section-title-SM
+  }
+
+  .wrapper__section-categories__info {
+    & a {
+      & h3 {
+        font-size: 15px;
+        line-height: normal;
+      }
+    }
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .section-categories {
+    .indexPage-section-p-SM;
+  }
+
+  .section-categories__title {
+    .section-title-SM
+  }
+
+  .wrapper__section-categories__info {
+    & a {
+      & h3 {
+        font-size: 15px;
+        line-height: normal;
+      }
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 1200px) and (max-width: 1399px) {}
+@media (min-width: 1400px) {}

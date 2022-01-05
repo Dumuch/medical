@@ -1,0 +1,17 @@
+{% if category.block1 | length > 0 %}
+    <section class="section-category__advantages">
+      <div class="container">
+        <h2 class="section-category__advantages__title">{{ category.block1_title }}</h2>
+        <ul class="section-category__advantages__list">
+         {% for item in category.block1 %}
+          <li class="section-category__advantages__item">
+            <div class="wrapper__section-category__advantages__item__image">
+              <img src="{{ item.icon|media|resize(65, auto, { mode: 'auto'}) }}" alt="{{ item.name }}" width="65" class="section-category__advantages__item__image">
+            </div>
+            <h3 class="section-category__advantages__item__title">{{ item.name|raw }}</h3>
+          </li>
+         {% endfor %}
+        </ul>
+      </div>
+    </section>
+{% endif %}

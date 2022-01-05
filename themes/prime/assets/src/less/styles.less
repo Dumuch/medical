@@ -1,0 +1,123 @@
+@import './variables.less';
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  .curs-trans;
+
+}
+
+a:active,
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px;
+  padding: 0 !important;
+  white-space: nowrap;
+  border: 0 !important;
+}
+@font-face {
+  font-family: 'RfDewi-R';
+  font-style: normal;
+  src: url("../fonts/RFDewi-Regular.woff") format('woff'), url("../fonts/RFDewi-Regular.woff2") format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RfDewi-B';
+  font-style: normal;
+  src: url("../fonts/RFDewi-Bold.woff") format('woff'), url("../fonts/RFDewi-Bold.woff2") format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RfDewi-Bl';
+  font-style: normal;
+  src: url("../fonts/RFDewi-Black.woff") format('woff'), url("../fonts/RFDewi-Black.woff2") format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RfDewi-Sb';
+  font-style: normal;
+  src: url("../fonts/RFDewi-Semibold.woff") format('woff'), url("../fonts/RFDewi-Semibold.woff2") format('woff2');
+  font-display: swap;
+}
+
+.button {
+  .mp-0;
+  .f-Sb;
+  font-size: 18px;
+  line-height: normal;
+  display: block;
+  box-sizing: border-box;
+  width: fit-content;
+  min-width: 240px;
+  padding: 20px 45px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  .curs-trans;
+
+  &:focus {
+    outline: none;
+  }
+}
+@media (max-width: 575px) {
+  .button {
+    font-size: 15px;
+    padding: 12px 20px;
+    min-width: 100px;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #dde1e5;
+  overflow: scroll;
+
+  & tr {
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  & tr:first-child {
+    .f-B;
+    color: #2b3036;
+    background-color: #f2f9ff;
+  }
+
+  & td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #dde1e5;
+
+  }
+}
+
+ul {
+  .mp-0;
+}
+@import './blocks/footer.less';
+@import './blocks/components/info-callback.less';
+@import './blocks/components/breadcrumbs.less';
+@import './blocks/components/page-header.less';
+@import './blocks/components/more-products.less';
+@import './blocks/components/product-card.less';
+@import './blocks/components/sidebar.less';
+@import './blocks/components/products.less';
+@import './blocks/components/category.less';
+@import './blocks/components/form-callback.less';
+@import './blocks/components/modal-callback.less';

@@ -1,0 +1,135 @@
+.section-banner {
+  position: relative;
+}
+
+.wrapper__section-banner__video {
+  max-height: 720px;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+}
+
+.section-banner__video {
+  display: block;
+  width: 100vw;
+}
+
+.section-banner .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.section-banner__info {
+  & p {
+    .mp-0;
+    margin-bottom: 40px;
+    .f-Bl;
+    font-size: 62px;
+    line-height: normal;
+    color: #ffffff;
+  }
+
+  & a {
+    background-color: #00d3a1;
+  }
+}
+
+.section-banner__play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & button {
+    font-size: 0;
+    .button__off-styles;
+    margin-bottom: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: #ffffff;
+    background-image: url("../img/icons/play_button.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    .curs-trans;
+
+    &:hover {
+      box-shadow: 4px 4px 8px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    &.section-banner__button--pause {
+      background-image: url("../img/icons/pause_button.png");
+    }
+  }
+
+  & span {
+    .f-B;
+    font-size: 14px;
+    line-height: 24px;
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 575px) {
+  .section-banner__info {
+    & p {
+      margin-bottom: 30px;
+      font-size: calc(100vw / 20);
+    }
+  }
+
+  .section-banner__play {
+
+    & button {
+      width: 35px;
+      height: 35px;
+      background-size: contain;
+    }
+
+    & span {
+      font-size: 12px;
+      line-height: normal;
+      text-align: center;
+    }
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .section-banner__info {
+    & p {
+      font-size: calc(100vw / 20);
+    }
+  }
+
+  .section-banner__play {
+    & span {
+      font-size: 12px;
+      line-height: normal;
+      text-align: center;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .section-banner__info {
+    & p {
+      font-size: calc(100vw / 16);
+    }
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 1200px) and (max-width: 1399px) {}
+@media (min-width: 1400px) {}

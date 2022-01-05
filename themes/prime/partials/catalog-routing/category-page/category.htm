@@ -1,0 +1,29 @@
+<section class="section-category section-category--header">
+
+  <div class="wrapper__section-category__background-image">
+    {% if category.background_image %}
+      <picture>
+        <source type="image/webp" srcset="{{ category.background_image | resize(auto, auto, { 'mode': 'auto', 'quality': '95', 'extension': 'webp' }) }}">
+        <img loading="lazy" src="{{ category.background_image.path }}" alt="" class="section-category__background-image">
+      </picture>
+    {% else %}
+      <img loading="lazy" src="{{ 'assets/img/category-background.jpg'|theme }}" alt="" class="section-category__background-image">
+    {% endif %}
+  </div>
+  <div class="container">
+    <h1 class="section-category__title">{{ category.name }}</h1>
+  </div>
+</section>
+
+{% partial 'components/breadcrumbs' title = true %}
+
+<div class="wrapper__section-category__preview-text">
+  <div class="container">
+    <div class="section-category__preview-text">
+      {{ category.preview_text | raw }}
+    </div>
+  </div>
+</div>
+
+{% partial 'catalog-routing/category-page/advantages' category = category %}
+{% partial 'catalog-routing/category-page/description' category = category %}

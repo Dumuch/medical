@@ -1,0 +1,25 @@
+<div class="wrapper__components-products">
+  <div class="wrapper__components-products__image">
+    {% if obActiveCategory.background_image %}
+      <picture>
+        <source type="image/webp" srcset="{{ obActiveCategory.background_image | resize(950, auto, { 'mode': 'fit', 'quality': '90', 'extension': 'webp' }) }}">
+        <img loading="lazy" src="{{ obActiveCategory.background_image | resize(950, auto, { 'mode': 'fit' }) }}" alt="{{ imageALTpreview }}" width="950" height="144">
+      </picture>
+    {% else %}
+      <img src="{{'assets/img/category--header.jpg'|theme}}" alt="" width="950" height="144">
+    {% endif%}
+  </div>
+
+  <div class="components-products__info">
+    {{ obActiveCategory.description|raw }}
+  </div>
+  <ul class="components-products__list mt-4">
+    {% if obProductList is not empty %}
+      {% for obProduct in obProductList %}
+        <li>
+          {% partial 'components/catalog/product-card' item=obProduct %}
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+</div>

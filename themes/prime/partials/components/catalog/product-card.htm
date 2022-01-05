@@ -1,0 +1,18 @@
+<a class="product-card" href="{{ item.getPageUrl('routing-catalog') }}">
+  {% if item.preview_image.title is not empty %}
+    {% set imageALTpreview = item.preview_image.title %}
+  {% elseif item.preview_image.description is not empty %}
+    {% set imageALTpreview = item.preview_image.description %}
+  {% else %}
+    {% set imageALTpreview = item.name %}
+  {% endif %}
+
+  <div class="wrapper__product-card__image">
+    <picture>
+      <source type="image/webp" srcset="{{ item.preview_image | resize(auto, 600, { 'mode': 'fit', 'quality': '90', 'extension': 'webp' }) }}">
+      <img loading="lazy" src="{{ item.preview_image | resize(auto, 600, { 'mode': 'fit' }) }}" alt="{{ imageALTpreview }}" width="313" height="235">
+    </picture>
+  </div>
+
+  <h4 class="product-card__title">{{ item.name }}</h4>
+</a>

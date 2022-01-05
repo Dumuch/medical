@@ -1,0 +1,31 @@
+{% set obProductList = ProductList.make().sort(ProductList.getSorting()).category(obCategory.id, true).take(3) %}
+
+<div class="wrapper__components-category">
+  <div class="components-category__header">
+    <div class="wrapper__components-category__image">
+      <img src="{{ obCategory.icon.getPath() }}" alt="" width="38" height="38">
+    </div>
+    <h2 class="components-category__title">{{ obCategory.name }}</h2>
+  </div>
+  <div class="components-category__body">
+    <div class="wrapper__components-category__image">
+      <img src="{{ obCategory.icon.getPath() }}" alt="" width="90" height="90">
+    </div>
+    <ul class="components-category__list">
+      {% if obProductList is not empty %}
+        {% for obProduct in obProductList %}
+          <li>
+            <div class="wrapper__components-category__item__image">
+              <picture>
+                <source type="image/webp" srcset="{{ obProduct.preview_image | resize(auto, 100, { 'mode': 'auto', 'quality': '90', 'extension': 'webp' }) }}">
+                <img class="components-category__item__image" loading="lazy" src="{{ obProduct.preview_image | resize(auto, 100, { 'mode': 'auto' }) }}" alt="{{ imageALTpreview }}" width="40" height="40">
+              </picture>
+            </div>
+            <a href="{{ obProduct.getPageUrl('routing-catalog') }}">{{ obProduct.name }}</a>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+  <a href="{{ obCategory.getPageUrl('routing-catalog') }}" class="components-category__more">все товары</a>
+</div>

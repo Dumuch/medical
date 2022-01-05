@@ -1,0 +1,19 @@
+<section class="section-category__description">
+  <div class="section-category__description__top">
+    <div class="container">
+      <div class="wrapper__section-category__description">
+        {{ category.description|raw }}
+      </div>
+      <button class="section-category__button _getConsult">Получить предложение</button>
+    </div>
+  </div>
+
+  <div class="section-category__description__bottom">
+    <div class="container">
+      <h2 class="section-category__description__title">{{ category.block2_title|raw }}</h2>
+      <div class="wrapper__section-category__description">
+        {{ category.block2|raw }}
+      </div>
+    </div>
+  </div>
+</section>

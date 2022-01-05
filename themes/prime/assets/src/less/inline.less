@@ -1,0 +1,68 @@
+@import "./variables.less";
+@import "./vendor/normalize.less";
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  .f-R();
+  font-size: 18px;
+  line-height: normal;
+  color: #434a54;
+}
+
+
+@media (max-width: 575px) {
+  body {
+    font-size: 15px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 1200px) and (max-width: 1399px) {}
+@media (min-width: 1400px) {}
+
+main {
+  flex-grow: 1;
+}
+@import "./vendor/grid.less";
+
+
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  box-sizing: border-box;
+}
+
+@media (min-width: 1300px) {
+  .row {
+    --bs-gutter-x: 40px;
+  }
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1280px;
+  }
+}
+// @media (min-width: 1400px) {
+//   .container,
+//   .container-lg,
+//   .container-md,
+//   .container-sm,
+//   .container-xl {
+//     max-width: 1470px;
+//   }
+// }
+@import "./blocks/header.less";

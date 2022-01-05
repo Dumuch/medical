@@ -1,0 +1,23 @@
+{% if obCategoryList is not empty %}
+  <section class="section-categories">
+    <div class="container">
+      <h2 class="section-categories__title">{{'Продукция'|_}}</h2>
+
+      <div class="row">
+          {% for obCategory in obCategoryList %}
+            <div class="col-12 col-md-6 col-xl-4 pb-4">
+              <a href="{{ obCategory.getPageUrl('routing-catalog') }}" class="section-categories__item">
+                <div class="wrapper__section-categories__image">
+                  <img loading="lazy" src="{{ obCategory.icon.getPath() }}" alt="" width="32" height="32">
+                </div>
+                <div class="wrapper__section-categories__info">
+                  <h3 class="section-categories__info__title">{{ obCategory.name }}</h3>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+      </div>
+
+    </div>
+  </section>
+{% endif %}

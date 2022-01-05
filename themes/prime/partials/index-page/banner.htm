@@ -1,0 +1,32 @@
+{% if arBannerSettings is not empty %}
+  <section class="section-banner">
+    <div class="wrapper__section-banner__video">
+      <video loop muted class="section-banner__video _section-banner__video">
+        <source src="{{ arBannerSettings.videoPath }}" type="video/mp4">
+        </source>
+      </video>
+    </div>
+
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-8">
+          <div class="section-banner__info">
+            <p>{{ arBannerSettings.title }}</p>
+            {% if arBannerSettings.link %}
+              <a class="button" href="{{ arBannerSettings.link }}">{{'Продукция'|_}}</a>
+            {% endif%}
+          </div>
+        </div>
+
+        <div class="col-4 d-flex justify-content-center">
+          <div class="section-banner__play">
+            <button class="_section-banner__button">{{'Включить видео'|_}}</button>
+            <span>{{'Смотреть видео'|_}}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+{% endif %}

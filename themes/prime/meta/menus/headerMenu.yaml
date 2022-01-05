@@ -1,0 +1,68 @@
+items:
+    -
+        title: Продукция
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: catalog
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Сервис
+        nesting: 0
+        type: static-page
+        url: null
+        code: ''
+        reference: service
+        cmsPage: null
+        replace: 0
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'О компании'
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: info
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Контакты
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: kontakty
+        replace: 0
+        viewBag:
+            locale:
+                en:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: 'Верхнее меню'

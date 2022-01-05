@@ -1,0 +1,44 @@
+title = "О компании"
+url = "/info"
+layout = "default"
+is_hidden = 0
+
+==
+<?php
+
+function onInit() {
+  require_once('phpcode/info.php');
+
+  $this['arAdvantagesAboutSettings'] = $arAdvantagesAboutSettings ?? [];
+  $this['arAchievementsAboutSettings'] = $arAchievementsAboutSettings ?? [];
+  $this['arHelpSettingcs'] = $arHelpSettings ?? [];
+  $this['advantages_description_1'] = $advantages_description_1 ?? '';
+  $this['advantages_description_2'] = $advantages_description_2 ?? '';
+
+  $this->page->title = $aboutText;
+  $this->page->canonical = request()->getSchemeAndHttpHost() . '/info';
+
+}
+
+function onStart() {
+  $this->addCss(['assets/css/infoPage.min.css']);
+  $this->addJs(['assets/javascript/fancybox.umd.js']);
+}
+
+?>
+==
+<main>
+  {% partial 'components/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
+  {% partial 'components/page-header' title='О компании'|_ pulse=true %}
+
+  {% partial 'info-page/block--1' advantages_description_1=advantages_description_1 %}
+  {% partial 'info-page/block--2' advantages_description_2=advantages_description_2 %}
+  {% partial 'info-page/advantages' arAdvantagesAboutSettings=arAdvantagesAboutSettings %}
+
+  {% partial 'components/info-callback' arHelpSettings=arHelpSettings %}
+
+  {% partial 'info-page/achievements' arAchievementsAboutSettings=arAchievementsAboutSettings %}
+
+  {% partial 'components/form-callback' %}
+
+</main>

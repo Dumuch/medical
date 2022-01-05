@@ -1,0 +1,16 @@
+{% if arOtherProducts is not empty %}
+  <section class="section-more-products">
+    <div class="container">
+      <h3 class="section-more-products__title">Рекомендуем</h3>
+      <div class="row">
+
+        {% for item in arOtherProducts %}
+          <div class="col-6 col-md-4 col-xl-3">
+            {% partial 'components/catalog/product-card' item=item %}
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,106 @@
+.info-page__achievements {
+  margin-top: 100px;
+  margin-bottom: 120px;
+}
+
+.info-page__achievements__title {
+  .section-title(url('../img/icons/pulse--1.svg'), 118px, 26px)
+}
+
+.info-page__achievements__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+
+  & li {
+    display: flex;
+    align-items: center;
+    width: 224px;
+  }
+}
+
+.wrapper__info-page__achievements__image {
+
+  width: 100%;
+  overflow: hidden;
+
+  & img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 317px;
+    border: 2px solid grey;
+    box-sizing: border-box;
+    border-image: linear-gradient(-90deg, rgba(90,95,225,1) 0%, rgba(32,137,229,1) 100%);
+    border-image-slice: 1;
+
+  }
+}
+
+@media (max-width: 575px) {
+  .info-page__achievements {
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+
+  .info-page__achievements__title {
+    .section-title-SM;
+  }
+
+  .info-page__achievements__list {
+    gap: 20px;
+
+    & li {
+      display: flex;
+      align-items: center;
+      width: calc(50% - 10px);
+    }
+  }
+
+  .wrapper__info-page__achievements__image {
+    & img {
+      max-height: 100%;
+    }
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .info-page__achievements {
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+
+  .info-page__achievements__title {
+    .section-title-SM;
+  }
+
+  .info-page__achievements__list {
+    gap: 20px;
+
+    & li {
+      display: flex;
+      align-items: center;
+      width: calc(50% - 10px);
+    }
+  }
+
+  .wrapper__info-page__achievements__image {
+    & img {
+      max-height: 100%;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .info-page__achievements__list {
+    gap: 20px;
+
+    & li {
+      display: flex;
+      align-items: center;
+      width: calc(33% - 12px);
+    }
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 1200px) and (max-width: 1399px) {}
+@media (min-width: 1400px) {}

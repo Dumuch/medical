@@ -1,0 +1,45 @@
+title = "Каталог"
+url = "/catalog"
+layout = "default"
+is_hidden = 0
+
+[CategoryList]
+
+[ProductList]
+sorting = "no"
+
+==
+<?php
+
+function onInit() {
+    require_once('phpcode/catalog.php');
+
+    $this['arBreadcrumbs'] = $arBreadcrumbs ?? [];
+    $this['obCategoryList'] = $obCategoryList ?? '';
+
+    $this->page->title = $catalogText;
+    $this->page->canonical = request()->getSchemeAndHttpHost() . '/catalog';
+}
+
+function onStart() {
+}
+
+?>
+==
+<main>
+  {% partial 'components/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
+  {% partial 'components/page-header' title='Каталог'|_ pulse=true %}
+
+  <div class="container">
+    <div class="row">
+      {% if obCategoryList is not empty %}
+        {% for obCategory in obCategoryList %}
+          <div class="col-12 col-md-6">
+            {% partial 'components/catalog/category' obCategory=obCategory %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+</main>

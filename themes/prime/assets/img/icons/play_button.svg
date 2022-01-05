@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20.5" height="34.156" viewBox="0 0 20.5 34.156">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1341" y1="431.439" x2="1361.5" y2="460.717" gradientUnits="userSpaceOnUse">
+      <stop offset="-0.25" stop-color="#00d3a1"/>
+      <stop offset="0.5" stop-color="#2089e5"/>
+      <stop offset="1.25" stop-color="#5a5fe1"/>
+    </linearGradient>
+  </defs>
+  <path id="Треугольник_1" data-name="Треугольник 1" class="cls-1" d="M1361.49,446.078l-20.5,17.078V429Z" transform="translate(-1341 -429)"/>
+</svg>

@@ -1,0 +1,195 @@
+.section-map {
+  .indexPage-section-p;
+}
+
+.section-map__title {
+  .section-title(url("../img/icons/pulse--4.svg"), 118px, 24px, 8px)
+}
+
+.section-map__list {
+  list-style: none;
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 35px;
+  row-gap: 10px;
+
+  & li {
+    & label {
+      .mp-0;
+      background-color: inherit;
+      border: none;
+      .f-Sb;
+      font-size: 18px;
+      line-height: normal;
+
+      .curs-trans;
+
+      &.active {
+        border-bottom: 2px solid #00d3a1;
+        color: #00d3a1;
+      }
+    }
+
+
+  }
+}
+
+.render-map {
+  width: 130%;
+  height: 500px;
+}
+
+.wrapper__section-map__image {
+  position: relative;
+  left: -30%;
+
+  & img {
+    display: none;
+  }
+}
+
+.section-map__info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.section-map__info__list {
+  list-style: none;
+
+  & li {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.wrapper__section-map__info {
+  display: flex;
+  flex-direction: column;
+
+  & span {
+    font-size: 16px;
+    color: #788897;
+  }
+
+  & p {
+    .mp-0;
+    .f-B;
+    line-height: 28px;
+  }
+
+  & a {
+    .f-B;
+    line-height: 28px;
+
+    .curs-trans;
+  }
+}
+
+.wrapper__section-map__info + .wrapper__section-map__info {
+  margin-top: 15px;
+}
+
+.section-map__info__button {
+  margin-top: 30px;
+  border: 2px solid #00d3a1;
+  .f-Sb;
+  color: #00d3a1;
+}
+
+@media (max-width: 575px) {
+  .section-map {
+    .indexPage-section-p-SM;
+  }
+
+  .section-map__title {
+    .section-title-SM()
+  }
+
+  .render-map {
+    width: 100%;
+  }
+
+  .wrapper__section-map__image {
+    left: 0;
+  }
+
+  .section-map__info {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .wrapper__section-map__info + .wrapper__section-map__info {
+    margin-top: 0;
+  }
+
+  .section-map__info__button {
+    margin-top: 15px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .section-map {
+    .indexPage-section-p-SM;
+  }
+
+  .section-map__title {
+    .section-title-SM()
+  }
+
+  .render-map {
+    width: 100%;
+  }
+
+  .wrapper__section-map__image {
+    left: 0;
+  }
+
+  .section-map__info {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .wrapper__section-map__info + .wrapper__section-map__info {
+    margin-top: 0;
+  }
+
+  .section-map__info__button {
+    margin-top: 15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .render-map {
+    width: 110%;
+  }
+
+  .wrapper__section-map__image {
+    left: -10%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .render-map {
+    width: 110%;
+  }
+
+  .wrapper__section-map__image {
+    left: -10%;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .render-map {
+    width: 110%;
+  }
+
+  .wrapper__section-map__image {
+    left: -10%;
+  }
+}
+@media (min-width: 1400px) {}

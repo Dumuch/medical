@@ -1,0 +1,45 @@
+<div class="components__form-callback">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-xl-2">
+        <p class="components__form-callback__title">{{'Отдел продаж'|_}}</p>
+      </div>
+      <div class="col-6 col-sm-4 col-xl-2">
+        <div class="components__form-callback__block">
+          <span>{{'Телефон'|_}}</span>
+          <a href="tel:{{ link_default_phone }}">{{ default_phone }}</a>
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-xl-2">
+        <div class="components__form-callback__block">
+          <span>{{'Viber и WhatsApp'|_}}</span>
+          <a href="whatsapp://send?phone={{ link_default_phone }}">{{ default_phone }}</a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 col-xl-3 mt-3 mt-sm-0">
+        <div class="components__form-callback__block">
+          <span>Email</span>
+          <a href="mailTo:{{ default_email }}">{{ default_email }}</a>
+        </div>
+      </div>
+    </div>
+
+    <form class="components__form-callback__form _form-callback__form" action="" data-request="{{emptyForm}}::onFormSubmit" data-request-success="$.oc.flashMsg({class: 'success', text: 'Сообщение успешно отправлено'});
+        $('._form-callback__form').find('input').val(''); $('._form-callback__form').find('button').prop('disabled', '')">
+      {{ form_token() }}
+
+      {% if (recaptcha_enabled) %}
+        <div id="{{ __SELF__ }}" class="g-recaptcha" data-sitekey="{{ __SELF__.settings.recaptcha_site_key }}" data-theme="{{ __SELF__.property('recaptcha_theme') }}" data-type="{{ __SELF__.property('recaptcha_type') }}"
+          data-size="{{ __SELF__.property('recaptcha_size') }}"></div>
+      {% elseif (recaptcha_misconfigured) %}
+        <h5>{{ recaptcha_warn }}</h5>
+      {% endif %}
+      <input type="hidden" name="title" value="{{this.page.title}}">
+
+      <input name="name" type="text" placeholder="имя" required>
+      <input name="phone" class="_mask-phone" type="text" placeholder="телефон" required>
+      <button class="button" type="submit">{{'отправить'|_}}</button>
+    </form>
+
+  </div>
+</div>

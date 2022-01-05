@@ -1,0 +1,55 @@
+url = "/"
+layout = "default"
+title = "Главная страница"
+is_hidden = 0
+
+[CategoryList]
+
+[BrandList]
+
+
+==
+<?php
+function onInit() {
+    require_once('phpcode/index.php');
+
+    $this['arBannerSettings'] = $arBannerSettings ?? [];
+    $this['arAboutSettings'] = $arAboutSettings ?? [];
+    $this['arServiceSettings'] = $arServiceSettings ?? [];
+    $this['arMapSettings'] = $arMapSettings ?? [];
+    $this['obCategoryList'] = $obCategoryList ?? [];
+    $this['arHelpSettings'] = $arHelpSettings ?? [];
+    $this['obBrandList'] = $obBrandList ?? [];
+
+
+    $this->page->title = $this->SiteSettings->get('seo_title') ? $this->SiteSettings->get('seo_title') : 'МК';
+    $this->page->description = $this->SiteSettings->get('seo_description');
+    $this->page->keywords = $this->SiteSettings->get('seo_keywords');
+    $this->page->canonical = request()->getSchemeAndHttpHost();
+
+}
+
+function onStart()
+{
+  $this->addCss(['assets/css/indexPage.min.css']);
+  $this->addJs(['assets/javascript/indexPage.js']);
+}
+?>
+==
+{% put scripts %}
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+{% endput %}
+
+<main>
+
+  {% partial 'index-page/banner' arBannerSettings=arBannerSettings %}
+  {% partial 'index-page/about' arAboutSettings=arAboutSettings %}
+  {% partial 'index-page/partners' obBrandList=obBrandList %}
+  {% partial 'index-page/categories' obCategoryList=obCategoryList %}
+  {% partial 'index-page/service' arServiceSettings=arServiceSettings %}
+
+  {% partial 'components/info-callback' arHelpSettings=arHelpSettings %}
+
+  {% partial 'index-page/map' arMapSettings=arMapSettings %}
+
+</main>

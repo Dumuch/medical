@@ -1,0 +1,55 @@
+url = "/brands/:slug"
+layout = "default"
+title = "Страница партнеров"
+is_hidden = 0
+
+[BrandPage]
+slug = "{{ :slug }}"
+slug_required = 1
+smart_url_check = 1
+skip_error = 0
+
+[CategoryList]
+
+[ProductList]
+sorting = "no"
+
+==
+<?php
+
+function onInit() {
+    require_once('phpcode/brands.php');
+
+    $this['arBreadcrumbs'] = $arBreadcrumbs ?? [];
+    $this['obBrand'] = $obBrand ?? null;
+    $this['obProductList'] = $obProductList ?? [];
+
+    $this->page->title = $brandsText;
+    $this->page->canonical = request()->getSchemeAndHttpHost() . '/brands';
+}
+
+function onStart() {
+}
+
+?>
+==
+<main>
+  {% partial 'components/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
+  {% partial 'components/page-header' title=obBrand.description %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col mb-2">{{ obBrand.description_full|raw }}</div>
+    </div>
+    <div class="row">
+      {% if obProductList is not empty %}
+        {% for product in obProductList %}
+          <div class="col-6 col-md-4">
+            {% partial 'components/catalog/product-card' item=product %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+</main>

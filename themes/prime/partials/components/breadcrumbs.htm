@@ -1,0 +1,17 @@
+<div class="wrapper__breadcrumbs">
+  <div class="container">
+    <ul class="breadcrumbs__list">
+      {% for item in arBreadcrumbs %}
+        {% if loop.last %}
+          <li>
+            {{ item.name }}
+          </li>
+        {% else %}
+          <li>
+            <a href="{{ item.url }}">{{ item.name }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

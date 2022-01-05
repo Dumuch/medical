@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.62" height="20.656" viewBox="0 0 20.62 20.656">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #434a54;
+        fill-rule: evenodd;
+        opacity: 0.5;
+      }
+    </style>
+  </defs>
+  <path id="Кнопка_поиска" data-name="Кнопка поиска" class="cls-1" d="M1531.67,46.5a8.619,8.619,0,1,0-1.74,1.733l5.16,5.16,1.74-1.729Zm-6.86,1a6.118,6.118,0,1,1,6.12-6.118A6.117,6.117,0,0,1,1524.81,47.5Z" transform="translate(-1516.19 -32.75)"/>
+</svg>

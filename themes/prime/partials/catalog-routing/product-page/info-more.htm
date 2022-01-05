@@ -1,0 +1,40 @@
+<div class="section-product__info-more">
+  {% if obProduct.info is not empty %}
+    <input class="visually-hidden" type="radio" name="nav-item" id="nav-item-3" checked>
+  {% endif %}
+
+  {% if obProduct.parameters is not empty %}
+    <input class="visually-hidden" type="radio" name="nav-item" id="nav-item-2" checked>
+  {% endif %}
+
+  {% if obProduct.booklet is not empty %}
+    <input class="visually-hidden" type="radio" name="nav-item" id="nav-item-1" checked>
+  {% endif %}
+
+  <ul class="section-product__info-more__nav-list">
+    <li class="{% if obProduct.booklet is empty %}visually-hidden{% endif %}">
+      <label for="nav-item-1">{{'Брошюра'|_}}</label>
+    </li>
+    <li class="{% if obProduct.parameters is empty %}visually-hidden{% endif %}">
+      <label for="nav-item-2">{{'Описание'|_}}</label>
+    </li>
+    <li class="{% if obProduct.info is empty %}visually-hidden{% endif %}">
+      <label for="nav-item-3">{{'Тестовая панель'|_}}</label>
+    </li>
+  </ul>
+
+  <ul class="section-product__info-more__content-list">
+    <li class="section-product__info-more__content-item {% if obProduct.booklet is empty %}visually-hidden{% endif %}">
+      {{ obProduct.booklet|raw }}
+    </li>
+
+      <li class="section-product__info-more__content-item {% if obProduct.parameters is empty %}visually-hidden{% endif %}">
+        {{ obProduct.parameters|raw }}
+      </li>
+
+
+      <li class="section-product__info-more__content-item {% if obProduct.info is empty %}visually-hidden{% endif %}">
+        {{ obProduct.info|raw }}
+      </li>
+  </ul>
+</div>
